@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Gemini Mermaid Renderer",
+  "version": "1.0.0",
+  "description": "Automatically render Mermaid diagrams in Google Gemini web interface",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://gemini.google.com/*",
+    "https://www.plantuml.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["src/content/index.tsx"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "index.html"
+  }
+}
